@@ -43,6 +43,9 @@ class File():
             raise InvalidTypeError('Invalid type for variable "attributes": expected list of attributes, got {0}'
                                    .format(type(attributes)))
 
+    def __str__(self):
+        return self.__name
+
     @property
     def name(self):
         """Return the name"""
