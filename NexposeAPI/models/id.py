@@ -6,8 +6,8 @@ class ID():
     Class defining the ID model
     """
 
-    __entity_id = None         # string
-    __source = None     # string
+    __entity_id = None      # string
+    __source = None         # string
 
     def __init__(self, entity_id=None, source=None):
         """
