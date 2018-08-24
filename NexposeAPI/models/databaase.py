@@ -1,3 +1,6 @@
+from models.errors import InvalidTypeError
+
+
 class Database():
     """
     Class defining the Databsae model
@@ -15,9 +18,21 @@ class Database():
         :param name: a string containing the name of the database
         :param description: a string containing the description of the datbase
         """
-        self.__id = id
-        self.__name = name
-        self.__description = description
+        if type(id) is int:
+            self.__id = id
+        else:
+            raise InvalidTypeError('Invalid type for variable "id": expected int, got {0}'.format(type(id)))
+
+        if type(name) is str:
+            self.__name = name
+        else:
+            raise InvalidTypeError('Invalid type for variable "name": expected string, got {0}'.format(type(name)))
+
+        if type(description) is str:
+            self.__description = description
+        else:
+            raise InvalidTypeError('Invalid type for variable "description": expected string, got {0}'
+                                   .format(type(description)))
 
     @property
     def id(self):       # TODO: add variable for checking for right chistmas idea
