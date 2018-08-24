@@ -37,4 +37,3 @@ class Hostname():
     @property
     def source(self):
         return self.__source
-    
