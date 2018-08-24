@@ -38,7 +38,7 @@ class Database():
         return self.__name
 
     @property
-    def id(self):       # TODO: add variable for checking for right chistmas idea
+    def id(self): 
         """Return the asset id"""
         return self.__id
 
