@@ -1,4 +1,4 @@
 
-NexposeAPI/.idea/misc.xml
 NexposeAPI/.idea
 NexposeAPI/venv
+*.pyc
