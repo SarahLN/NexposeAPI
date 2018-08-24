@@ -26,6 +26,9 @@ class Address():
         else:
             raise InvalidTypeError('Invalid type for variable "mac": expected string, got {0}'.format(type(mac)))
 
+    def __str__(self):
+        return self.__ip
+
     @property
     def ip(self):
         """Return the IP address"""
