@@ -1,0 +1,99 @@
+from datetime import datetime
+
+from models.errors import InvalidTypeError
+
+
+class History():
+    """
+    Class defining the History model
+    """
+
+    __scan_id = None                        # int
+    __description = None                    # string
+    __history_type = None                   # string
+    __user = None                           # string
+    __version = None                        # int
+    __date = None                           # date
+    __vulnerability_exception_id = None     # string
+
+    def __init__(self, scan_id=None, description=None, history_type=None, user=None, version=None, date=None, vulnerability_exception_id=None):
+        """
+        Initialize a History object
+
+        :param scan_id: int containing the id of the scan entry
+        :param description: string containing a description of the history entry
+        :param history_type: string containing the history type (e.g. SCAN)
+        :param user: string containing the user who initiated the event
+        :param version: int containing the version
+        :param date: datetime object containing the date/time of the event
+        :param vulnerability_exception_id: string containing the id if an exception is in place
+        """
+
+        if type(scan_id) is int:
+            self.__scan_id = scan_id
+        else:
+            raise InvalidTypeError('Invalid type for variable "scan_id": expected int, got {0}'.format(type(scan_id)))
+
+        if type(description) is str:
+            self.__description = description
+        else:
+            raise InvalidTypeError('Invalid type for variable "description": expected string, got {0}'.format(type(description)))
+
+        if type(history_type) is str:
+            self.__history_type = history_type
+        else:
+            raise InvalidTypeError('Invalid type for variable "history_type": expected string, got {0}'.format(type(history_type)))
+
+        if type(user) is str:
+            self.__user = user
+        else:
+            raise InvalidTypeError('Invalid type for variable "user": expected string, got {0}'.format(type(user)))
+
+        if type(version) is int:
+            self.__version = version
+        else:
+            raise InvalidTypeError('Invalid type for variable "version": expected int, got {0}'.format(type(version)))
+
+        if type(date) is str:
+            # convert to datetime
+            self.__date = datetime.strptime(date, "%Y-%m-%dT%H:%M:%SZ")
+        elif type(date) is datetime.datetime:
+            self.__date = date
+        else:
+            raise InvalidTypeError('Invalid type for variable "date": expected datetime.datetime, got {0}'.format(type(date)))
+
+        if type(vulnerability_exception_id) is str:
+            self.__vulnerability_exception_id = vulnerability_exception_id
+        else:
+            raise InvalidTypeError('Invalid type for variable "vulnerability_exception_id": expected string, got {0}'.format(type(vulnerability_exception_id)))
+
+    def __str__(self):
+        return self.__description
+
+    @property
+    def scan_id(self):
+        return self.__scan_id
+
+    @property
+    def description(self):
+        return self.__description
+
+    @property
+    def history_type(self):
+        return self.__history_type
+
+    @property
+    def user(self):
+        return self.__user
+
+    @property
+    def version(self):
+        return self.__version
+
+    @property
+    def date(self):
+        return self.__date
+
+    @property
+    def vulnerability_exception_id(self):
+        return self.__vulnerability_exception_id
