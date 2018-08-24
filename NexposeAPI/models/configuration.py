@@ -26,6 +26,9 @@ class Configuration():
         else:
             raise InvalidTypeError('Invalid type for variable "value": expected string, got {0}'.format(type(value)))
 
+    def __str__(self):
+        return self.__name
+
     @property
     def name(self):
         """Return the name"""
