@@ -34,6 +34,9 @@ class Database():
             raise InvalidTypeError('Invalid type for variable "description": expected string, got {0}'
                                    .format(type(description)))
 
+    def __str__(self):
+        return self.__name
+
     @property
     def id(self):       # TODO: add variable for checking for right chistmas idea
         """Return the asset id"""
