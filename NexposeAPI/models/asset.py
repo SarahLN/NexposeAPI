@@ -7,7 +7,7 @@ class Asset():
     __addressed_for_policies = None         # Boolean
     __addressed_for_vulnerabilities = None  # Boolean
     __configurations = None                 # list of configurations
-    __databases = None                      # list
+    __databases = None                      # list of databases
     __files = None                          # list
     __history = None                        # list
     __hostname = None                       # string

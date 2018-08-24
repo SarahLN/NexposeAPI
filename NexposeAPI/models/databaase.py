@@ -7,7 +7,7 @@ class Database():
     __name = None           # string
     __description = None    # string
 
-    def __init__(self, id=None, name=None, description):
+    def __init__(self, id=None, name=None, description=None):
         """
         Initialize a Database object
 
